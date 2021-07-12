@@ -9,7 +9,8 @@ if(yearOfBirth >= 2001 && yearOfBirth < 2004 ){
     alert('Hello your bonus is ' + (currentSalary)* 20/100)
 }else if(yearOfBirth >1971){
     alert('Sorry but you do not seem to be part of us')
-}else if(yearOfBirth < 2003){ console.log('Sorry but you do not seem to be part of us')
+}else if(yearOfBirth < 2003){ 
+    alert('Sorry but you do not seem to be part of us')
 }else{
     alert('You did not assign a varible')
 }
