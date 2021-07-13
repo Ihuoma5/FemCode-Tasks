@@ -22,13 +22,15 @@ function multiplication(n) {
 for (let i = 1; i <= 20; i++) {
     if(n % 3 === 0 ||n % 5 === 0||n % 7 === 0) {
         result = i * n;
-        console.log(`${n} * ${i} = ${result}`);
+        document.write(`${n} * ${i} = ${result}`);
+        document.write('<br>')
       }else {
-        console.log("Not applicable")
+        document.write(`${n} is not appilcable in this condition`)
+        break;
       }
    
     }
 }
 
-multiplication(7)
+multiplication(5)
 
