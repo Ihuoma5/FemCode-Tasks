@@ -14,7 +14,6 @@
 alert("Hello, let's check your voting eligibility. Click 'OK' to continue");
 
 const name = prompt("Put in your name:");
-
 const y = Number(
   prompt("Put in your YEAR of birth in numbers (Like this: 1977):")
 );
@@ -25,23 +24,17 @@ const d = Number(
   prompt("Put in your DAY of birth in numbers (Like this: 27 ):")
 );
 
-const dob = Date.parse(`${y}-${m}-${d}`);
-const todayDate = Date.now();
-const ageDiff = todayDate - dob;
-const votingAge = 568025136000;
+const ageDiff = Date.now() - Date.parse(`${y}-${m}-${d}`);
+const votingAge = Math.floor(568025136000 / (1000 * 60 * 60 * 24));
+const userBirthday = Math.floor(ageDiff / (1000 * 60 * 60 * 24) - 1);
+const userAge = Math.floor(userBirthday / 365);
 
-const millisecs = ageDiff;
-const seconds = millisecs / 1000;
-const minutes = seconds / 60;
-const hours = minutes / 60;
-const days = hours / 24;
-const months = days / 30;
-const years = Math.floor(days / 365)
-
-if (ageDiff >= votingAge) {
-  document.write(
-    `Hello ${name}, you are ${years} years old, so you're eligible to vote`
-  );
-} else {
+if (userBirthday < votingAge) {
   document.write("You are not yet eligible to vote. Wait till you're eighteen");
+} else {
+  document.write(
+    `Hello ${name}, you are ${userAge} years old, so you're eligible to vote`
+  );
 }
+
+console.log(votingAge, userBirthday);
